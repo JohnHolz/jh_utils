@@ -8,5 +8,8 @@ class timer():
 		self.start = dt.datetime.now()
 
 	def stop(self):
-		end_dt = dt.datetime.now()
-		print('Time taken: %s' % (end_dt - self.start_dt))
+		self.end = dt.datetime.now()
+		self.duration = self.end - self.start
+
+	def pretty_print():
+		print('Time taken: {}'.format(self.duration))
