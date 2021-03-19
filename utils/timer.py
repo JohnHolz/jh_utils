@@ -1,6 +1,11 @@
 from datetime import datetime as dt
 
 class Timer():    
+    """    
+    Timer class
+    Declare a timer object that measure the time 
+    of a running application
+    """    
     def __init__(self, start_now = False):
         if start_now:
             self.start()
