@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-     name='jh-utils',  
+     name='jh_utils',  
      version='0.1',
      author="João Holz",
      email = 'joaopaulo.paivaholz@gmail.com',
