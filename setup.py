@@ -1,16 +1,19 @@
-import setuptools
+from setuptools import setup
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-setuptools.setup(
-     name='jh_utils',  
-     version='0.0.3',
+setup(
+    ### simple info
+     name='jh_utils', 
+     version='0.0.1',
      author='João Holz',
      email = 'joaopaulo.paivaholz@gmail.com',
      description="Some simple functions to all projects",
+     ## some descriptions
      long_description=long_description,
      long_description_content_type='text/markdown',
+     ## github
      url='https://github.com/JohnHolz/jh_utils',
      packages=setuptools.find_packages(),
      classifiers=[
@@ -18,4 +21,5 @@ setuptools.setup(
          'License :: OSI Approved :: MIT License',
          'Operating System :: OS Independent',
      ],
+     package_dir = {'': 'src'},
  )
