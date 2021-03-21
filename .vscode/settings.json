@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "/home/joaoholz/miniconda3/envs/weather/bin/python",
+    "python.pythonPath": "/home/joaoholz/miniconda3/envs/jh-utils/bin/python",
     "python.condaPath": "/home/joaoholz/miniconda3/bin/conda"
 }
