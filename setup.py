@@ -22,5 +22,6 @@ setup(
          'Operating System :: OS Independent',
      ],
      package_dir = {'': '.'},
+     packages=["pandas",'sql','utils']
      setup_requires=['wheel']
  )
