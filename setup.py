@@ -17,7 +17,7 @@ def read(filename):
 
 setup(
     name="jh_utils",
-    version="0.0.1",
+    version="0.0.5",
     url='https://github.com/JohnHolz/jh_utils',
     license='MIT',
 
