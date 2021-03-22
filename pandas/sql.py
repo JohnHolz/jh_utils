@@ -6,7 +6,7 @@ import psycopg2
 
 def get_data(query, engine):
     """
-    create an 
+    make a query in a database
     """
     ## open connection
     engine.connect()
