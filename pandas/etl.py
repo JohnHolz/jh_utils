@@ -1,6 +1,17 @@
 import pandas as pd
 
 def create_dimension(dataframe, column_name):
+    """
+    [summary]
+
+    Args:
+        dataframe (dataframe): [description]
+        column_name (string): [description]
+
+    Returns:
+        dataframe: [description]
+    """    
+    
     dimension = dataframe[column_name]
     dimension = pd.DataFrame(dimension.unique()).reset_index()
     dimension.columns = ['id'+column_name, column_name]
