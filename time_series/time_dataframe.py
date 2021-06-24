@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from covariables import year_sincos_array, hour_sincos_array, hours_by_day
+from jh_utils.time_series.covariables import year_sincos_array, hour_sincos_array, hours_by_day
 from jh_utils.pandas.preprocessing import make_dummies
 
 def date_range_dataframe(start_date,end_date,freq='1H', column_name='hours'):
