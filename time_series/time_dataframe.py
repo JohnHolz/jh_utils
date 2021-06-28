@@ -24,5 +24,6 @@ def time_series_dataframe(start_date,end_date,freq='1H',datetime_column_name='ho
     if year_sin_cos:
         df = pd.concat([df,year_sincos_array(shape[0],start_date,end_date)],axis=1)
     if hour_sin_cos:
-        df = pd.concat([df,hour_sincos_array(hours_by_day(freq),start_date,pd.to_datetime(end_date))],axis=1)        
+        df = pd.concat([df,hour_sincos_array(hours_by_day(freq),start_date,pd.to_datetime(end_date))],axis=1)
+    
     return df

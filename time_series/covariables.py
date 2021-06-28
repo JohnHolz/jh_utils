@@ -49,5 +49,4 @@ def hour_sincos_array(hours_by_day, start_date, end_date):
     length = np.arange(start, end, np.pi*2/(hours_by_day))
     df =  pd.concat([pd.Series(np.sin(length)),pd.Series(np.cos(length))],axis=1)
     df.columns = ['sin','cos']
-    return df
-
+    return df.iloc[:-1]
