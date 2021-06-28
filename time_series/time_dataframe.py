@@ -27,5 +27,5 @@ def time_series_dataframe(start_date,end_date,freq='1H',datetime_column_name='ho
         df = pd.concat([df,hour_sincos_array(hours_by_day(freq),start_date,pd.to_datetime(end_date))],axis=1)
     
     df.index =  df[datetime_column_name]
-    df.drop(datetime_column_name,axis=1)
+    df = df.drop(datetime_column_name,axis=1)
     return df
