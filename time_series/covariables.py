@@ -35,7 +35,7 @@ def year_sincos_array(n,start_date,end_date):
     
     length = np.arange(start, end, (end-start)/n)
     df =  pd.concat([pd.Series(np.sin(length)),pd.Series(np.cos(length))],axis=1)
-    df.columns = ['sin','cos']
+    df.columns = ['sin_year','cos_year']
     return df
 
 def hour_sincos_array(hours_by_day, start_date, end_date):
@@ -48,5 +48,5 @@ def hour_sincos_array(hours_by_day, start_date, end_date):
     end = np.pi*2*distance
     length = np.arange(start, end, np.pi*2/(hours_by_day))
     df =  pd.concat([pd.Series(np.sin(length)),pd.Series(np.cos(length))],axis=1)
-    df.columns = ['sin','cos']
+    df.columns = ['sin_day','cos_day']
     return df.iloc[:-1]
