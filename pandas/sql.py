@@ -18,7 +18,7 @@ def get_data(query, engine):
     engine.close()
     return table
 
-def write_table(table, table_name, schema, engine, if_exists = 'append', chunksize = 10_000, index= False, close_connection = True):
+def write_table(table, table_name, schema, engine, if_exists = 'append', chunksize = 10_000, index= False, close_connection = False):
     """
     if_exists => ["append","replace"]
     
