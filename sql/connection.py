@@ -23,5 +23,5 @@ def create_connection(database: str, user: str, password: str, host: str, port: 
     if sgbd == 'mysql':
         con_string = 'mysql+pymysql://'+user+':'+password+'@'+host+':'+port+'/'+database
     if sgbd == 'redshift':
-        con_string = f'redshift+psycopg2://{user}:{password}@{host}:{port}/{db}'
+        con_string = f'redshift+psycopg2://{user}:{password}@{host}:{port}/{database}'
     return create_engine(con_string)
