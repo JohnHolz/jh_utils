@@ -33,7 +33,7 @@ def string_connection(database: str, user: str, password: str, host: str, port: 
         sgbd (str, optional): Defaults to 'postgresql'. Change the sgbd string in the db connection-string
 
     Returns:
-        sql alchemy db engine: 
+        connection string: 
     """    
 
     ## Creating db string connection

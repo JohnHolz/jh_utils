@@ -29,3 +29,16 @@ def time_series_dataframe(start_date,end_date,freq='1H',datetime_column_name='ho
     df.index =  df[datetime_column_name]
     df = df.iloc[:,1:]
     return df
+
+def date_hour_crossjoin(column_1,column_2):
+    """
+    Create a crossjoin dataframe based on 2 columns
+    """
+    column_1 = pd.DataFrame(column_1.unique())
+    column_2 = pd.DataFrame(column_2.unique())
+    column_1['key'], column_2['key'] = 0,0
+    date_time = column_1.merge(column_2,on='key').drop(columns = 'key')
+    date_time.columns = ['data','hora']
+    date_time.sort_values(['data','hora'],inplace=True)
+    date_time.reset_index(inplace=True,drop=True)
+    return date_time
