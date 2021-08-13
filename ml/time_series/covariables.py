@@ -1,7 +1,24 @@
 import pandas as pd
 import numpy as np
+from jh_utils.pandas.preprocessing import make_dummies
 
-def hours_by_day(freq):
+def time_series_dataframe(df,
+                          weekday_dummies=True,
+                          month_dummies=True,
+                          hour_dummies=True):
+    shape = df.shape
+    if weekday_dummies:
+        df = pd.concat([df,make_dummies(pd.Series(df.iloc[:,0].dt.weekday, name = 'weekday_dummie'))],axis=1)
+    if month_dummies:
+        df = pd.concat([df,make_dummies(pd.Series(df.iloc[:,0].dt.month, name = 'month_dummie'))],axis=1)
+    if hour_dummies:
+        df = pd.concat([df,make_dummies(pd.Series(df.iloc[:,0].dt.hour, name = 'hour_dummie'))],axis=1)
+   
+    df.index =  df[datetime_column_name]
+    df = df.iloc[:,1:]
+    return df
+
+def hours_by_day(freq='1H'):
     freq = freq.upper()
     if freq == '1H':
         return 24
