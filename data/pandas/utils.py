@@ -12,3 +12,7 @@ def crossjoin(column_1,column_2):
     df_ret.columns = columns_name
     return df_ret
     
+##
+def na_by_column(df):
+    ret = df.isnull().mean()
+    return ret
