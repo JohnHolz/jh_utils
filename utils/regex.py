@@ -55,3 +55,13 @@
     - String de no máximo 10 caracteres sendo o primeiro uma letra, sem caracteres especiais.
 
 """
+
+cnpj = '\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}'
+cpf = '\d{3}\.?\d{3}\.?\d{3}[-.]?\d{2}'
+time = '\d{2}h\d{2}min\d{2}s'
+data ='[\s]?[0-9]{2}[-/:][0-9]{2}[-/:][0-9]{2,4}'
+datetime = '[1-3]?\d\s+de\s+[A-Z][a-zç]{3,8}\s+de\s+[12]\d{3}'
+ip='\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}'
+phone='\([0-9]{2}\).([1-9]{4,5}-[0-9]{4})'
+numbers='^([\s\d]+)$'
+remove_special_characters='[^A-Za-z0-9]+'
