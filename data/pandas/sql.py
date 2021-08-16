@@ -4,7 +4,7 @@ import json
 from sqlalchemy import create_engine
 import psycopg2
 
-def get_data(query, engine, close_connection = False):
+def get_sql_table(query, engine, close_connection = False):
     """
     make a query in a database
     """
@@ -19,7 +19,7 @@ def get_data(query, engine, close_connection = False):
         engine.close()
     return table
 
-def write_table(table, table_name, schema, engine, if_exists = 'append', chunksize = 10_000, index= False, close_connection = False):
+def write_sql_table(table, table_name, schema, engine, if_exists = 'append', chunksize = 10_000, index= False, close_connection = False):
     """
     if_exists => ["append","replace"]
     """
