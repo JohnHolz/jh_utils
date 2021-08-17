@@ -34,7 +34,7 @@ def delete_table(table_name, schema, engine):
     conn.execute(f'DELETE FROM {schema}.{table_name}')
     conn.close()
 
-def delete_table(schema, engine):
+def drop_schema(schema, engine):
     conn = engine.connect()
     conn.execute(f'DROP SCHEMA {schema}')
-    conn.close()    
+    conn.close()
