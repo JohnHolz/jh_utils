@@ -1,12 +1,12 @@
 from jh_utils.pandas import sql
 import dask as dd
 
-def pandas_migrate_table(query, table_name, engine_origin, engine_destiny, destiny_schema, if_exists):
+def migrate_table_pandas(query, table_name, engine_origin, engine_destiny, destiny_schema, if_exists):
     df = sql.get_data(query, engine_origin)
     sql.write_table(df, table_name, destiny_schema, engine_destiny,
                     if_exists=if_exists, chunksize=10_000, index=False, close_connection=False)
 
-def pandas_migrate_function(engine_origin, 
+def migrate_function_pandas(engine_origin, 
                          engine_destiny, 
                          destiny_schema,index=False):
     def output_func(query, table_name, if_exists='replace', chunksize=10_000):
@@ -17,7 +17,7 @@ def pandas_migrate_function(engine_origin,
     return output_func
 
 
-def dask_migrate_table(table,
+def migrate_table_dask(table,
                        table_id,
                        input_schema,
                        output_schema,
@@ -44,7 +44,7 @@ def dask_migrate_table(table,
               method=method)
 
 
-def dask_migrate_function(uri_input, uri_output):
+def migrate_function_dask(uri_input, uri_output):
     def output_func(table, 
                     table_id, 
                     input_schema, 

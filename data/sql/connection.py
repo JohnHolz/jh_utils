@@ -20,7 +20,7 @@ def create_connection(database: str, user: str, password: str, host: str, port: 
     ## Creating db string connection
     return create_engine(con_string)
 
-def string_connection(database: str, user: str, password: str, host: str, port: str, sgbd = 'postgresql'):
+def create_string_connection(database: str, user: str, password: str, host: str, port: str, sgbd = 'postgresql'):
     """
     Declare a db connection
 

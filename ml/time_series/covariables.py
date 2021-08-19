@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from jh_utils.pandas.preprocessing import make_dummies
 
-def time_series_dataframe(df,
+def create_time_series_dataframe(df,
                           weekday_dummies=True,
                           month_dummies=True,
                           hour_dummies=True):
@@ -18,7 +18,7 @@ def time_series_dataframe(df,
     df = df.iloc[:,1:]
     return df
 
-def hours_by_day(freq='1H'):
+def get_number_hours_by_day(freq='1H'):
     freq = freq.upper()
     if freq == '1H':
         return 24
@@ -35,7 +35,7 @@ def hours_by_day(freq='1H'):
     if freq == '12H':
         return 2
 
-def year_sincos_array(n,start_date,end_date):
+def create_sincos_year_array(n,start_date,end_date):
     start_date = pd.to_datetime(start_date)
     end_date   = pd.to_datetime(end_date)
     
@@ -55,7 +55,7 @@ def year_sincos_array(n,start_date,end_date):
     df.columns = ['sin_year','cos_year']
     return df
 
-def hour_sincos_array(hours_by_day, start_date, end_date):
+def create_sincos_hour_array(hours_by_day, start_date, end_date):
     start_date = pd.to_datetime(start_date)
     end_date   = pd.to_datetime(end_date)
     ## ! year distance

@@ -3,11 +3,11 @@ import numpy as np
 from jh_utils.time_series.covariables import year_sincos_array, hour_sincos_array, hours_by_day
 from jh_utils.pandas.preprocessing import make_dummies
 
-def date_range_dataframe(start_date,end_date,freq='1H', column_name='hours'):
+def create_date_range_dataframe(start_date,end_date,freq='1H', column_name='hours'):
     df = pd.DataFrame({column_name: pd.date_range(start_date, end_date, freq=freq, closed='left')})
     return df
 
-def time_series_dataframe(start_date,end_date,freq='1H',datetime_column_name='hours',
+def create_time_series_dataframe(start_date,end_date,freq='1H',datetime_column_name='hours',
                           weekday_dummies=True,
                           month_dummies=True,
                           hour_dummies=True):
@@ -24,7 +24,7 @@ def time_series_dataframe(start_date,end_date,freq='1H',datetime_column_name='ho
     df = df.iloc[:,1:]
     return df
 
-def date_hour_crossjoin(column_1,column_2):
+def make_date_hour_crossjoin(column_1,column_2):
     """
     Create a crossjoin dataframe based on 2 columns
     """

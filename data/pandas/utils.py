@@ -13,6 +13,18 @@ def crossjoin(column_1,column_2):
     return df_ret
     
 ##
-def na_by_column(df):
+def get_na_by_column(df):
     ret = df.isnull().mean()
     return ret
+
+def clean_na(df, na_value = ''):
+    ## Na from dataset
+
+    df.index = df['date_time']
+    df = df.drop(columns=['date_time'])
+
+    df = df.replace(to_replace=na_value,value=np.NaN)
+    df = df[df.iloc[:,1].first_valid_index():]
+    df = df.fillna(method='ffill')
+    return df
+
