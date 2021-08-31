@@ -1,5 +1,5 @@
 from jh_utils.data.pandas import sql
-import dask as dd
+import dask.dataframe as dd
 
 def migrate_table_pandas(query, table_name, engine_origin, engine_destiny, destiny_schema, if_exists):
     df = sql.get_sql_table(query, engine_origin)
