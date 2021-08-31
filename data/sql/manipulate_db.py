@@ -1,8 +1,8 @@
-from jh_utils.data.pandas.sql import get_data
+from jh_utils.data.pandas.sql import get_sql_table
 from sqlalchemy import inspect
 
 def get_top_rows(table, schema, engine, n=1):
-    return get_data(f'select * from {schema}.{table} dc limit {n}',engine)
+    return get_sql_table(f'select * from {schema}.{table} dc limit {n}',engine)
 
 def create_table_structure(pandas_df, table_name, engine, schema, index = False, if_exists = 'append'):
     pandas_df.to_sql(name = table_name,
