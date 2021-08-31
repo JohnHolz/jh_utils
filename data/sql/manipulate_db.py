@@ -1,4 +1,4 @@
-from jh_utils.pandas.sql import get_data
+from jh_utils.data.pandas.sql import get_data
 from sqlalchemy import inspect
 
 def get_top_rows(table, schema, engine, n=1):

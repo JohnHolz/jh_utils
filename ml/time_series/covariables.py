@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from jh_utils.pandas.preprocessing import make_dummies
+from jh_utils.data.pandas.preprocessing import make_dummies
 
 def create_time_series_dataframe(df,
                           weekday_dummies=True,
