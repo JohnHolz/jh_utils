@@ -34,7 +34,7 @@ def migrate_table_dask(table,
                            index_col=table_id,
                            npartitions=npartitions,
                            bytes_per_chunk=bytes_per_chunk)
-    df = df.drop(f'{table_id}__1', axis=1)
+    # df = df.drop(f'{table_id}__1', axis=1)
     dd.to_sql(df,
               uri=uri_output,
               name=table,
