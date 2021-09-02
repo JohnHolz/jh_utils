@@ -3,6 +3,12 @@ import psycopg2
 
 def create_connection(database: str, user: str, password: str, host: str, port: str, sgbd = 'postgresql'):
     """
+    create_connection(database=env['db'], 
+                  user=env['user'],
+                  password=env['pass'], 
+                  host=env['host'],
+                  port=env['port'])
+
     Declare a db connection
 
     Args:
@@ -16,12 +22,18 @@ def create_connection(database: str, user: str, password: str, host: str, port: 
     Returns:
         sql alchemy db engine: 
     """ 
-    con_string = string_connection(database, user, password, host, port, sgbd = 'postgresql')
+    con_string = create_string_connection(database, user, password, host, port, sgbd = 'postgresql')
     ## Creating db string connection
     return create_engine(con_string)
 
 def create_string_connection(database: str, user: str, password: str, host: str, port: str, sgbd = 'postgresql'):
     """
+    create_connection(database=env['db'], 
+                  user=env['user'],
+                  password=env['pass'], 
+                  host=env['host'],
+                  port=env['port'])
+                  
     Declare a db connection
 
     Args:
