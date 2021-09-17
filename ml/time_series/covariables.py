@@ -35,7 +35,7 @@ def get_number_hours_by_day(freq='1H'):
     if freq == '12H':
         return 2
 
-def create_sincos_year_array(n,start_date,end_date):
+def create_sincos_year_array(n,start_date,end_date,n_days_in_year = 366):
     start_date = pd.to_datetime(start_date)
     end_date   = pd.to_datetime(end_date)
     
@@ -47,8 +47,8 @@ def create_sincos_year_array(n,start_date,end_date):
     distance = (end_date - first_date).days
     
     ##
-    start = (np.pi*2)*(day_of_the_year_start/365)
-    end = np.pi*2*(distance/365)
+    start = (np.pi*2)*(day_of_the_year_start/n_days_in_year)
+    end = np.pi*2*(distance/n_days_in_year)
     
     length = np.arange(start, end, (end-start)/n)
     df =  pd.concat([pd.Series(np.sin(length)),pd.Series(np.cos(length))],axis=1)
