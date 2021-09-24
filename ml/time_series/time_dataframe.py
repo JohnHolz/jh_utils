@@ -12,7 +12,6 @@ def create_time_series_dataframe(start_date,end_date,freq='1H',datetime_column_n
                           month_dummies=True,
                           hour_dummies=True):
     df = date_range_dataframe(start_date,end_date,freq=freq,column_name=datetime_column_name)
-    shape = df.shape
     if weekday_dummies:
         df = pd.concat([df,make_dummies(pd.Series(df.iloc[:,0].dt.weekday, name = 'weekday_dummie'))],axis=1)
     if month_dummies:
