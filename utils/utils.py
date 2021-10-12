@@ -17,4 +17,4 @@ def print_dict(dic:dict):
     ret = ''
     for i in dic:
         ret = ret + f"""\n {i}: {dic[i]}"""
-    return ret
+    print(ret)
