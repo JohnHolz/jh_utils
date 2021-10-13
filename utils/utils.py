@@ -13,8 +13,17 @@ def write_dotenv(env, file=".env"):
         for i in env:
             f.write(f'{i}={env[i]}\n')
 
-def print_dict(dic:dict):
+def to_print_dict(dic:dict):
+    """
+    @ make the dict a key: value table string
+    """
     ret = ''
     for i in dic:
         ret = ret + f"""\n {i}: {dic[i]}"""
-    print(ret)
+    return ret
+
+def print_dict(dic:dict):
+    """
+    @ just print to_print_dict
+    """
+    print(to_print_dict(dic))
