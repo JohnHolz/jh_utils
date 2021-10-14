@@ -39,10 +39,12 @@ def sample(vec):
     return vec[randint(len(vec))]
 
 def to_print_list(ls):
+    """just remove [] from list to print it"""
     ret = ''
     for i in ls:
         ret=ret+f'{i},'
     return ret[:-1]
 
 def print_list(ls):
+    """print the list without []"""
     print(to_print_list(ls))
