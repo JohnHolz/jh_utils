@@ -22,8 +22,10 @@ hello = """
 ################################################################################
 """
 
-def get_line(number_of_dots, replicable_value = "-"):
+def get_line(number_of_dots, replicable_value = "-",first_line=False):
     line = f'\n+{replicable_value*number_of_dots}\n'
+    if first_line:
+        return line[1:]
     return line
 
 line = get_line(51)
