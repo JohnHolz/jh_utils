@@ -22,4 +22,8 @@ hello = """
 ################################################################################
 """
 
-line = '\n+----------------------------------+\n'
+def get_line(number_of_dots, replicable_value = "-"):
+    line = f'\n+{replicable_value*number_of_dots}\n'
+    return line
+
+line = get_line(51)
