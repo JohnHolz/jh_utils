@@ -20,7 +20,7 @@ def to_print_dict(dic:dict,spaces = 4):
     """
     ret = ''
     for i in dic:
-        ret = ret + f"""\n{spaces*' '}{i}: {dic[i]}"""
+        ret = ret + f"""{spaces*' '}{i}: {dic[i]}\n"""
     return ret
 
 def print_dict(dic:dict):
