@@ -44,6 +44,23 @@ def migrate_table_dask(table,
               method=method)
 
 
+def send_to_s3bucket(file_name,
+                       bucket_path, 
+                       table,
+                       table_id,
+                       input_schema,
+                       uri_input,
+                       npartitions,
+                       bytes_per_chunk='256MB'):
+    df = dd.read_sql_table(table=table,
+                           uri=uri_input,
+                           schema=input_schema,
+                           index_col=table_id,
+                           npartitions=npartitions,
+                           bytes_per_chunk=bytes_per_chunk)
+    # df = df.drop(f'{table_id}__1', axis=1)
+    df.to_csv(bucket_path + file_name)
+
 def migrate_function_dask(uri_input, uri_output):
     def output_func(table, 
                     table_id, 
