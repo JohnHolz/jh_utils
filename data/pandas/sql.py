@@ -14,9 +14,6 @@ def get_sql_table(query, engine, close_connection = False):
     ## make select query
     table = pd.read_sql(query, engine)
 
-    # ## close connection
-    if close_connection:
-        engine.close()
     return table
 
 def write_sql_table(table, table_name, schema, engine, if_exists = 'append', chunksize = 10_000, index= False, close_connection = False):

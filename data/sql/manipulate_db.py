@@ -1,5 +1,6 @@
 from jh_utils.data.pandas.sql import get_sql_table
 from sqlalchemy import inspect
+import sqlalchemy as sa
 
 def get_top_rows(table, schema, engine, n=1):
     return get_sql_table(f'select * from {schema}.{table} dc limit {n}',engine)

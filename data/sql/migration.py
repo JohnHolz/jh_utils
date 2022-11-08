@@ -28,7 +28,7 @@ def migrate_table_dask(table,
                        parallel=True,
                        if_exists='append',
                        method='multi'):
-    df = dd.read_sql_table(table=table,
+    df = dd.read_sql_table(table,
                            uri=uri_input,
                            schema=input_schema,
                            index_col=table_id,
