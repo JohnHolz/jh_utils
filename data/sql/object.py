@@ -1,8 +1,8 @@
 from connection import create_connection, create_string_connection
 from dotenv import dotenv_values
-from manipulate_db import get_schemas, get_tables, get_top_rows
+from manipulate_db import get_schemas, get_tables, get_top_rows, create_schema
 
-class db():
+class DB():
     
     """
     env: db, user, pass, host, port
@@ -42,4 +42,11 @@ class db():
         return get_tables(schema,self.engine)
     
     def get_top_rows(self, table, schema, n=5):
-        get_top_rows(table = table, schema = schema, engine = self.engine, n=n)
+        return get_top_rows(table = table, schema = schema, engine = self.engine, n=n)
+        
+    def create_schema(self, schema_nema):
+        create_schema(schema_nema, self.engine)
+        
+    def run_sql(self, sql):
+        conn = self.engine.connect()
+        conn.execute(sql)
