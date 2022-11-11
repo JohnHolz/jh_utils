@@ -1,6 +1,6 @@
-from connection import create_connection, create_string_connection
+from jh_utils.data.sql.connection import create_connection, create_string_connection
 from dotenv import dotenv_values
-from manipulate_db import get_schemas, get_tables, get_top_rows, create_schema
+from jh_utils.data.sql.manipulate_db import get_schemas, get_tables, get_top_rows, create_schema
 
 class DB():
     
