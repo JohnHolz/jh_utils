@@ -28,7 +28,7 @@ def create_connection(database: str, user: str, password: str, host: str, port: 
 
 def create_string_connection(database: str, user: str, password: str, host: str, port: str, sgbd = 'postgresql'):
     """
-    create_connection(database=env['db'], 
+    create_string_connection(database=env['db'], 
                   user=env['user'],
                   password=env['pass'], 
                   host=env['host'],
