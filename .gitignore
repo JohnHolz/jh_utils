@@ -1,1 +1,22 @@
+## everything that is hidden
+.**
+
+## remove pycache
+**__pycache__
+## data
 **.csv
+**.CSV
+
+**05_models
+
+**.zip
+
+**tasks.md
+**kaggle_dataset_v3
+
+**analisefatorial.ipynb
+**acc.ipynb
+
+**node_modules
+
+**ssh**
