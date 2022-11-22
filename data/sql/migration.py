@@ -29,14 +29,14 @@ def migrate_table_dask(table,
                        if_exists='append',
                        method='multi'):
     df = dd.read_sql_table(table,
-                           uri=uri_input,
+                           con=uri_input,
                            schema=input_schema,
                            index_col=table_id,
                            npartitions=npartitions,
                            bytes_per_chunk=bytes_per_chunk)
     # df = df.drop(f'{table_id}__1', axis=1)
     dd.to_sql(df,
-              uri=uri_output,
+              con=uri_output,
               name=table,
               schema=output_schema,
               if_exists=if_exists,

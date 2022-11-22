@@ -18,7 +18,7 @@ doc = """
 
 
 class DB():
-    doc
+    __doc__ = doc
     def __init__(self,db,user,password,host,port):
         self.db = db
         self.user = user
@@ -78,13 +78,17 @@ class DB():
 ## 
 
 def create_object_DB(env_dict):
-    doc
-    db = DB(db = env_dict['db'],user = env_dict['user'],password = env_dict['pass'],host = env_dict['host'],port = env_dict['port'])
-    return db
+    __docstring__ = doc
+    db_object = DB(db = env_dict['db'],
+            user = env_dict['user'],
+            password = env_dict['pass'],
+            host = env_dict['host'],
+            port = env_dict['port'])
+    return db_object
         
 def create_object_DB_by_envfile(path='.env'):
-    doc
+    __docstring__ = doc
     env = dotenv_values(path)
-    db = create_object_DB(env)
-    return db
+    db_obect_created = create_object_DB(env)
+    return db_obect_created
 
