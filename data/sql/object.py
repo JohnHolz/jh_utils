@@ -46,6 +46,8 @@ class DB():
         return f"""host: {self.host}\ndb:{self.db}"""
 
 
+
+
     ## ! table
     def drop_table(self, table,schema):
         return drop_table(table,schema=schema,engine=self.engine)
