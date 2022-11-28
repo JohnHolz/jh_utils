@@ -45,29 +45,29 @@ class DB():
 
     ## ! table
     def drop_table(self, table,schema):
-        return drop_table(table,schema=schema,engine=self.engine)
+        return drop_table(table,schema=schema,engine=self.engine())
     
     def delete_table(self,table_name,schema):
-        delete_table(table_name, schema, self.engine, close_connection = True)
+        delete_table(table_name, schema, self.engine(), close_connection = True)
 
     def get_schemas(self):
-        return get_schemas(self.engine)
+        return get_schemas(self.engine())
     
     def get_tables(self,schema):
-        return get_tables(schema,self.engine)
+        return get_tables(schema,self.engine())
     
     def get_top_rows(self, table, schema, n=5):
-        return get_top_rows(table = table, schema = schema, engine = self.engine, n=n)
+        return get_top_rows(table = table, schema = schema, engine = self.engine(), n=n)
 
     ## ! schema
     def drop_schema(self, schema):
-        drop_schema(schema=schema,engine = self.engine)
+        drop_schema(schema=schema,engine = self.engine())
     
     def create_schema(self, schema_nema):
-        create_schema(schema_nema, self.engine)
+        create_schema(schema_nema, self.engine())
         
     def run_sql(self, sql):
-        conn = self.engine.connect()
+        conn = self.engine().connect()
         conn.execute(sql)
 
 ##
