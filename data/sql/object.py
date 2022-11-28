@@ -16,7 +16,6 @@ doc = """
     schema=raw
     """
 
-
 class DB():
     __doc__ = doc
     def __init__(self,db,user,password,host,port):
@@ -25,18 +24,16 @@ class DB():
         self.password = password
         self.host = host
         self.port = port
-        self.uri = create_string_connection(database=self.db,
+        
+    def engine(self):
+        return create_connection(database=self.db,
                             user=self.user,
                             password=self.password,
                             host=self.host,
                             port=self.port)
-        self.engine = '--empty--'
-        
-    def connect(self):
-        __doc__ = """
-        Fill self.engine with sqlalchemy connection
-        """
-        self.engine = create_connection(database=self.db,
+
+    def uri(self):
+        return create_string_connection(database=self.db,
                             user=self.user,
                             password=self.password,
                             host=self.host,
@@ -44,8 +41,6 @@ class DB():
 
     def __repr__(self) -> str:
         return f"""host: {self.host}\ndb:{self.db}"""
-
-
 
 
     ## ! table

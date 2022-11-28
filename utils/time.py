@@ -1,5 +1,7 @@
 from datetime import datetime as dt
 
+formato = "%d/%m/%y %H:%M:%S"
+
 class Timer():    
     """    
     Timer class
@@ -14,6 +16,15 @@ class Timer():
         if start_now:
             self.start()
             
+    def start_time_on_format(self,format = formato):
+        return self.start_time.strftime(formato)    
+    
+    def stop_time_on_format(self,format = formato):
+        if self.duration == None:
+            return "not stoped"
+        return self.stop_time.strftime(formato)
+        
+    
     def __repr__(self):
         return f'\n started: {str(self.start_time)} \n finished:{str(self.stop_time)} \n duration:{str(self.duration)}'
 
