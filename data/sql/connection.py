@@ -1,5 +1,15 @@
-from sqlalchemy import create_engine
+import sqlalchemy as sa
 import psycopg2
+
+def create_string(user,password,host,db,port,sgbd = "postgresql"):
+    connection_string = sa.engine.URL.create(
+        drivername=sgbd,
+        username=user,
+        password=password,
+        host=host,
+        database=db,
+        port=port)
+    return connection_string
 
 def create_connection(database: str, user: str, password: str, host: str, port: str, sgbd = 'postgresql'):
     """
@@ -9,22 +19,10 @@ def create_connection(database: str, user: str, password: str, host: str, port: 
                   host=env['host'],
                   port=env['port'])
     
-    Declare a db connection
-    
-    Args:
-        database (str): database name
-        user (str): user
-        password (str): password
-        host (str): host
-        port (str): port
-        sgbd (str, optional): Defaults to 'postgresql'. Change the sgbd string in the db connection-string
-    
-    Returns:
-        sql alchemy db engine: 
     """ 
     con_string = create_string_connection(database, user, password, host, port, sgbd = 'postgresql')
     ## Creating db string connection
-    return create_engine(con_string)
+    return sa.create_engine(con_string)
 
 def create_string_connection(database: str, user: str, password: str, host: str, port: str, sgbd = 'postgresql'):
     """
@@ -33,19 +31,6 @@ def create_string_connection(database: str, user: str, password: str, host: str,
                   password=env['pass'], 
                   host=env['host'],
                   port=env['port'])
-                  
-    Declare a db connection
-
-    Args:
-        database (str): database name
-        user (str): user
-        password (str): password
-        host (str): host
-        port (str): port
-        sgbd (str, optional): Defaults to 'postgresql'. Change the sgbd string in the db connection-string
-
-    Returns:
-        connection string: 
     """    
 
     ## Creating db string connection

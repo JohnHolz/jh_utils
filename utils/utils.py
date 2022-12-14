@@ -5,6 +5,12 @@ def open_json(json_file):
     with open(json_file) as data:
         return json.load(data)
 
+def read_query(path):
+    fd = open(path, 'r')
+    sqlFile = fd.read()
+    fd.close()
+    return sqlFile
+
 def write_dotenv(env, file=".env"):
     """
     python-dotenv dont have any function to overwrite .env file
