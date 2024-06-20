@@ -1,8 +1,10 @@
 import pandas as pd
 
-def create_calendar_table(start, end, columns = ['day','month','year','week','weekday','month_name','weekday_name'],
-                    locale=None):
-    calendar = pd.DataFrame(pd.date_range(start=start, end=end),columns=['date'])
+
+def create_calendar_table(start, end, columns=['day', 'month', 'year', 'week', 'weekday', 'month_name', 'weekday_name'],
+                          locale=None):
+    calendar = pd.DataFrame(pd.date_range(
+        start=start, end=end), columns=['date'])
     if 'day' in columns:
         calendar['day'] = calendar.date.dt.day
     if 'month' in columns:
