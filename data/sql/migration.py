@@ -10,7 +10,8 @@ def migrate_table_pandas(query, table_name, engine_origin, engine_destiny, desti
 
 def migrate_function_pandas(engine_origin,
                             engine_destiny,
-                            destiny_schema, index=False):
+                            destiny_schema,
+                            index=False):
     def output_func(query, table_name, if_exists='replace', chunksize=10_000):
         df = sql.get_sql_table(query, engine_origin)
         sql.write_table(df, table_name, destiny_schema, engine_destiny,
