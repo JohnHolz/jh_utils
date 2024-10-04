@@ -1,5 +1,12 @@
 from jh_utils.data.sql.connection import create_connection, create_string_connection
-from jh_utils.data.sql.manipulate_db import create_table_structure, get_tables, drop_table, delete_table, get_top_rows, get_schemas, create_schema, drop_schema, apply_delete_to_schema
+from jh_utils.data.sql.manipulate_db import (
+    get_tables,
+    drop_table,
+    delete_table,
+    get_schemas,
+    create_schema,
+    drop_schema,
+)
 from dotenv import dotenv_values
 from sqlalchemy import inspect
 
@@ -17,7 +24,7 @@ doc = """
     """
 
 
-class DB():
+class DB:
     __doc__ = doc
 
     def __init__(self, db, user, password, host, port):
@@ -28,18 +35,22 @@ class DB():
         self.port = port
 
     def engine(self):
-        return create_connection(database=self.db,
-                                 user=self.user,
-                                 password=self.password,
-                                 host=self.host,
-                                 port=self.port)
+        return create_connection(
+            database=self.db,
+            user=self.user,
+            password=self.password,
+            host=self.host,
+            port=self.port,
+        )
 
     def uri(self):
-        return create_string_connection(database=self.db,
-                                        user=self.user,
-                                        password=self.password,
-                                        host=self.host,
-                                        port=self.port)
+        return create_string_connection(
+            database=self.db,
+            user=self.user,
+            password=self.password,
+            host=self.host,
+            port=self.port,
+        )
 
     def __repr__(self) -> str:
         return f"""host: {self.host}\ndb:{self.db}"""
@@ -57,9 +68,6 @@ class DB():
     def get_tables(self, schema):
         return get_tables(schema, self.engine())
 
-    def get_top_rows(self, table, schema, n=5):
-        return get_top_rows(table=table, schema=schema, engine=self.engine(), n=n)
-
     # ! schema
     def drop_schema(self, schema):
         drop_schema(schema=schema, engine=self.engine())
@@ -71,6 +79,7 @@ class DB():
         conn = self.engine().connect()
         conn.execute(sql)
 
+
 ##
 # ? Second form to create the object
 ##
@@ -78,11 +87,13 @@ class DB():
 
 def create_object_DB(env_dict):
     __docstring__ = doc
-    db_object = DB(db=env_dict['db'],
-                   user=env_dict['user'],
-                   password=env_dict['pass'],
-                   host=env_dict['host'],
-                   port=env_dict['port'])
+    db_object = DB(
+        db=env_dict['db'],
+        user=env_dict['user'],
+        password=env_dict['pass'],
+        host=env_dict['host'],
+        port=env_dict['port'],
+    )
     return db_object
 
 

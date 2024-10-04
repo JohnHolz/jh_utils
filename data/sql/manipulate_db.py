@@ -9,10 +9,12 @@ import sqlalchemy as sa
 # ! Table
 
 
-def create_table_structure(pandas_df, table_name, engine, schema, index=False, if_exists='append'):
-    pandas_df.to_sql(name=table_name,
-                     con=engine,
-                     schema=schema, index=index, if_exists=if_exists)
+def create_table_structure(
+    pandas_df, table_name, engine, schema, index=False, if_exists='append'
+):
+    pandas_df.to_sql(
+        name=table_name, con=engine, schema=schema, index=index, if_exists=if_exists
+    )
     delete_table(table_name, schema, engine)
 
 
@@ -35,11 +37,8 @@ def delete_table(table_name, schema, engine, close_connection=True):
         conn.close()
 
 
-def get_top_rows(table, schema, engine, n=1):
-    return get_sql_table(f'select * from {schema}.{table} dc limit {n}', engine)
-
-
 # ! Schema
+
 
 def get_schemas(engine):
     insp = inspect(engine)
