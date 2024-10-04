@@ -1,4 +1,3 @@
-from jh_utils.data.pandas.sql import get_sql_table
 from sqlalchemy import inspect
 import sqlalchemy as sa
 
