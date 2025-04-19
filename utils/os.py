@@ -19,22 +19,21 @@ def remove(name, is_folder=False):
     os.remove(name)
 
 
-def ls(path: str = '.', contains=[''], not_contains=[''], files=True, directories=True):
-    # just to transform string in list if necessary
+def ls(
+    path: str = ".", contains=[""], not_contains=[""], files=False, directories=False
+):
     if type(contains) == str:
         contains = [contains]
     if type(contains) == str:
         not_contains = [not_contains]
 
     # set first list
-    if files == True and directories == True:
-        final_ls = os.listdir(path)
-    elif files == True:
+    if files == True:
         final_ls = list(filter(os.path.isfile, os.listdir(path)))
     elif directories == True:
         final_ls = list(filter(os.path.isdir, os.listdir(path)))
     else:
-        return 'ERROR: DIRECTORIES OF FILES NEED TO BE TRUE'
+        return os.listdir(path)
 
     # filter list
     for i in contains:
