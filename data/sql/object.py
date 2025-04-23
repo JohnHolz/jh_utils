@@ -1,13 +1,13 @@
+from dotenv import dotenv_values
 from jh_utils.data.sql.connection import create_connection, create_string_connection
 from jh_utils.data.sql.manipulate_db import (
-    get_tables,
-    drop_table,
-    delete_table,
-    get_schemas,
     create_schema,
+    delete_table,
     drop_schema,
+    drop_table,
+    get_schemas,
+    get_tables,
 )
-from dotenv import dotenv_values
 from sqlalchemy import inspect
 
 doc = """
@@ -20,7 +20,6 @@ doc = """
     user=weather
     pass=weather12
     port=5400
-    schema=raw
     """
 
 
@@ -88,16 +87,16 @@ class DB:
 def create_object_DB(env_dict):
     __docstring__ = doc
     db_object = DB(
-        db=env_dict['db'],
-        user=env_dict['user'],
-        password=env_dict['pass'],
-        host=env_dict['host'],
-        port=env_dict['port'],
+        db=env_dict["db"],
+        user=env_dict["user"],
+        password=env_dict["pass"],
+        host=env_dict["host"],
+        port=env_dict["port"],
     )
     return db_object
 
 
-def create_object_DB_by_envfile(path='.env'):
+def create_object_DB_by_envfile(path=".env"):
     __docstring__ = doc
     env = dotenv_values(path)
     db_obect_created = create_object_DB(env)
